@@ -4,7 +4,7 @@ from torch.utils.data import DataLoader
 
 
 def test(device):
-    batch_size = 300
+    batch_size = 100
     cid = IMDBDataset(is_train=False)
     dataloader = DataLoader(cid, batch_size=batch_size, shuffle=False)
     criterion = torch.nn.MSELoss(reduction='mean')

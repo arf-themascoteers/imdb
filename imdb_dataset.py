@@ -21,7 +21,7 @@ class IMDBDataset(Dataset):
         self.transforms = transforms.Compose([
             transforms.ToTensor(),
             # transforms.CenterCrop((2304,2304)),
-            transforms.Resize((128,128))
+            transforms.Resize((64,64))
         ])
         images = os.listdir(self.img_dir)
         self.image_list = list()

@@ -7,7 +7,7 @@ from torch.utils.data import DataLoader
 from imdb_machine import IMDBMachine
 
 def train(device):
-    batch_size = 1000
+    batch_size = 100
     cid = IMDBDataset(is_train=True)
     dataloader = DataLoader(cid, batch_size=batch_size, shuffle=True)
     model = IMDBMachine()
