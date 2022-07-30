@@ -1,21 +1,21 @@
 import torch
 import torch.nn.functional as F
-from age_dataset import AgeDataset
+from imdb_dataset import IMDBDataset
 import torchvision
 import torch.nn as nn
 from torch.utils.data import DataLoader
-from age_machine import TocMachine
+from imdb_machine import IMDBMachine
 
 def train(device):
-    batch_size = 300
-    cid = AgeDataset(is_train=True)
+    batch_size = 1000
+    cid = IMDBDataset(is_train=True)
     dataloader = DataLoader(cid, batch_size=batch_size, shuffle=True)
-    model = TocMachine()
+    model = IMDBMachine()
     model.train()
     model.to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-3, weight_decay=1e-5)
     criterion = torch.nn.MSELoss(reduction='mean')
-    num_epochs = 20
+    num_epochs = 7
     n_batches = int(len(cid)/batch_size) + 1
     batch_number = 0
     loss = None

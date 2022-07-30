@@ -2,7 +2,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
-class TocMachine(nn.Module):
+class IMDBMachine(nn.Module):
     def __init__(self):
         super().__init__()
         self.machine = nn.Sequential(
@@ -19,7 +19,7 @@ class TocMachine(nn.Module):
             nn.MaxPool2d(kernel_size=(2, 2)),
             nn.Flatten(),
             nn.Dropout(),
-            nn.Linear(23104, 16),
+            nn.Linear(6400, 16),
             nn.LeakyReLU(0.2),
             nn.Linear(16, 1)
         )
